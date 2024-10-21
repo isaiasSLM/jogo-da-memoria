@@ -4,7 +4,7 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100vh;
+    min-height: 100vh;
     margin: 0;
     background-image: url('img/fundo2.jpg');
     background-size: cover;
@@ -23,7 +23,7 @@ h1 {
 .game-board {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-    gap: 20px;
+    gap: 15px;
     padding: 10px;
     width: 100%;
     max-width: 500px;
@@ -32,6 +32,7 @@ h1 {
 .card {
     width: 100%;
     aspect-ratio: 4/5;
+    /* Mantém a proporção da carta */
     perspective: 1000px;
     cursor: pointer;
     position: relative;
@@ -111,17 +112,21 @@ img {
 /* Media query para telas maiores, como computadores */
 @media (min-width: 768px) {
     .game-board {
-        grid-template-columns: repeat(4, 200px);
-        gap: 40px;
-        max-width: 800px;
+        grid-template-columns: repeat(4, 150px);
+        /* Cartas menores no desktop */
+        gap: 20px;
+        max-width: 700px;
+        /* Ajusta a largura máxima da área de jogo */
     }
 
     .card {
-        width: 200px;
-        height: 250px;
+        width: 150px;
+        /* Reduz o tamanho das cartas */
+        height: 200px;
     }
 
     h1 {
-        font-size: 3.5rem;
+        font-size: 2.5rem;
+        /* Título maior para desktop */
     }
 }
