@@ -1,3 +1,4 @@
+/* Estilos gerais */
 body {
     font-family: 'Arial', sans-serif;
     display: flex;
@@ -17,9 +18,10 @@ h1 {
     font-size: 2rem;
     margin-bottom: 20px;
     text-align: center;
-    text-shadow: 2px 2px 4px rgb(85, 6, 213);
+    text-shadow: 2px 2px 4px rgb(204, 100, 21);
 }
 
+/* Estilos para o tabuleiro de jogo */
 .game-board {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
@@ -29,10 +31,10 @@ h1 {
     max-width: 500px;
 }
 
+/* Estilos para as cartas */
 .card {
     width: 100%;
     aspect-ratio: 4/5;
-    /* Mantém a proporção da carta */
     perspective: 1000px;
     cursor: pointer;
     position: relative;
@@ -50,6 +52,10 @@ h1 {
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     transition: transform 0.6s ease;
+    padding: 10px;
+    box-sizing: border-box;
+    flex-direction: column;
+    text-align: center;
 }
 
 .front {
@@ -72,12 +78,26 @@ h1 {
     transform: rotateY(360deg);
 }
 
+.back h1 {
+    font-size: 1rem;
+    color: #333;
+    margin: 5px 0;
+}
+
+.back p {
+    font-size: 0.8rem;
+    color: #000000;
+    margin: 5px 0;
+}
+
+/* Estilos de imagem dentro das cartas */
 img {
     max-width: 100%;
     max-height: 100%;
     border-radius: 10px;
 }
 
+/* Estilo da mensagem de congratulação */
 .congratulations-message {
     position: fixed;
     top: 50%;
@@ -109,24 +129,35 @@ img {
     background-color: #45a049;
 }
 
+/* Ajustes para telas pequenas */
+@media (max-width: 600px) {
+    .back h1 {
+        font-size: 0.8rem;
+        /* Reduzi o tamanho da fonte do título */
+    }
+
+    .back p {
+        font-size: 0.65rem;
+        /* Reduzi ainda mais o tamanho do texto */
+        padding: 0 5px;
+    }
+}
+
 /* Media query para telas maiores, como computadores */
 @media (min-width: 768px) {
     .game-board {
         grid-template-columns: repeat(4, 150px);
-        /* Cartas menores no desktop */
         gap: 20px;
         max-width: 700px;
-        /* Ajusta a largura máxima da área de jogo */
     }
 
     .card {
         width: 150px;
-        /* Reduz o tamanho das cartas */
         height: 200px;
     }
 
     h1 {
         font-size: 2.5rem;
-        /* Título maior para desktop */
+        /* Ajustei o título principal */
     }
 }

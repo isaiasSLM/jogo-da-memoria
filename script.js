@@ -3,23 +3,26 @@ let hasFlippedCard = false;
 let lockBoard = false;
 let firstCard, secondCard;
 let matchedPairs = 0;
-const totalPairs = 6;
+const totalPairs = 4; // Atualizado para 4 pares
 
+// Pares correspondentes para o novo conjunto de cartas
 const cardPairs = {
     1: 2,
     3: 4,
     5: 6,
     7: 8,
-    9: 10,
-    11: 12,
 };
 
-(function shuffle() {
+// Embaralhamento das cartas
+function shuffle() {
     cards.forEach(card => {
-        let randomPos = Math.floor(Math.random() * 12);
+        let randomPos = Math.floor(Math.random() * 8); // Ajustado para 8 cartas
         card.style.order = randomPos;
     });
-})();
+}
+
+// Embaralhamento inicial ao carregar
+shuffle();
 
 function flipCard() {
     if (lockBoard) return;
@@ -98,7 +101,7 @@ function restartGame() {
     });
 
     document.querySelector('.congratulations-message').remove();
-    shuffle();
+    shuffle(); // Embaralha novamente as cartas
 }
 
 cards.forEach(card => card.addEventListener('click', flipCard));
