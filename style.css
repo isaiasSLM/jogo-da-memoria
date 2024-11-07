@@ -131,13 +131,24 @@ img {
 
 /* Ajustes para telas pequenas */
 @media (max-width: 600px) {
+    .game-board {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 10px;
+    }
+
+    .card {
+        width: 80px;
+        height: 100px;
+    }
+
     .back h1 {
         font-size: 0.8rem;
         /* Reduzi o tamanho da fonte do título */
     }
 
     .back p {
-        font-size: 0.65rem;
+        font-size: 0.60rem;
         /* Reduzi ainda mais o tamanho do texto */
         padding: 0 5px;
     }
